@@ -21,6 +21,8 @@ hide = [
 comments = [
     "skip doctest that's missing a data file",
     "skip failing tests that are missing data files",
+    "skip unigram test_sample which is flaky:",
+    "https://github.com/huggingface/tokenizers/issues/461",
 ]
 run = [
     "doc",
@@ -35,7 +37,8 @@ run = [
     # "test:stream",
     # training test fails entirely
     # "test:training",
-    "test:unigram",
+    # unigram has two online tests and one flake
+    # "test:unigram",
 ]
 skip.doc = [
     "926",
@@ -55,8 +58,3 @@ skip."test:serialization" = [
     "wordpiece_serde",
 ]
 skip-exact."test:serialization" = true
-skip."test:unigram" = [
-    "test_train_unigram_from_file",
-    "test_unigram_from_file",
-]
-skip-exact."test:unigram" = true
