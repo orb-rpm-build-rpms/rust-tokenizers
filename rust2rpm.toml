@@ -1,14 +1,23 @@
 [package]
 summary = "Implementation of today's most used tokenizers in Rust"
 cargo-toml-patch-comments = [
-    "Allow newer (but still compatible) monostate versions",
     """\
-Allow all fancy-regex versions from 0.13 through 0.17: \
-https://github.com/huggingface/tokenizers/pull/1940\
+Update monostate dependency to v1: \
+https://github.com/huggingface/tokenizers/pull/2242\
 """,
-    "Upgrade indicatif dependency from 0.17 to 0.18",
-    "Downgrade onig dependency from 6.5.1 to 6.4.0",
+    """\
+Update fancy-regex dependency to 0.18: \
+https://github.com/huggingface/tokenizers/pull/2243; \
+also allow older 0.16, https://bugzilla.redhat.com/show_bug.cgi?id=2321464\
+""",
     "Drop criterion dev-dependency",
+]
+
+[[package.extra-patches]]
+number = 10
+file = "0001-Downstream-only-don-t-run-doctests-that-require-data.patch"
+comments = [
+    "Downstream-only: don’t run doctests that require data files",
 ]
 
 # hide the optional features using wasm
@@ -19,25 +28,25 @@ hide = [
 
 [tests]
 comments = [
-    "skip doctest that's missing a data file",
-    "skip failing tests that are missing data files",
-    "skip unigram test_sample which is flaky:",
-    "https://github.com/huggingface/tokenizers/issues/461",
+    """\
+Everything in test:documentation, test:offsets, test:stream, and test:training \
+requires data files downloaded from huggingface hub.\
+""",
+    """\
+Most tests in test:unigram require data files downloaded from huggingface hub, \
+and the remaining test (test_sample) is known to be flaky, \
+https://github.com/huggingface/tokenizers/issues/461.\
+""",
 ]
 run = [
     "doc",
     "test:added_tokens",
-    # documentation test fails entirely
     # "test:documentation",
     "test:from_pretrained",
-    # offsets test fails entirely
     # "test:offsets",
     "test:serialization",
-    # stream test fails entirely
     # "test:stream",
-    # training test fails entirely
     # "test:training",
-    # unigram has two online tests and one flake
     # "test:unigram",
 ]
 skip.doc = [

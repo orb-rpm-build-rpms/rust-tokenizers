@@ -1,0 +1,29 @@
+From a77877f1eb1e75beddaef19b5331ae72a0953f67 Mon Sep 17 00:00:00 2001
+From: "Benjamin A. Beasley" <code@musicinmybrain.net>
+Date: Sat, 25 Jul 2026 07:50:05 +0100
+Subject: [PATCH] =?UTF-8?q?Downstream-only:=20don=E2=80=99t=20run=20doctes?=
+ =?UTF-8?q?ts=20that=20require=20data=20files?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/tokenizer/mod.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/tokenizer/mod.rs b/src/tokenizer/mod.rs
+index 8e282fba..79e367a3 100644
+--- a/src/tokenizer/mod.rs
++++ b/src/tokenizer/mod.rs
+@@ -933,7 +933,7 @@ where
+ ///
+ /// Example:
+ ///
+-/// ```
++/// ```no_run
+ /// # #[cfg(not(target_os = "windows"))]
+ /// # {
+ /// use tokenizers::Tokenizer;
+-- 
+2.55.0
+

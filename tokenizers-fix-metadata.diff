@@ -1,37 +1,24 @@
---- tokenizers-0.22.2/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ tokenizers-0.22.2/Cargo.toml	2026-02-06T05:07:23.388813+00:00
-@@ -164,7 +164,7 @@
+--- tokenizers-0.23.1/Cargo.toml	2006-07-24T01:21:28+00:00
++++ tokenizers-0.23.1/Cargo.toml	2026-07-25T07:21:35.912082+00:00
+@@ -177,7 +177,7 @@
  default-features = false
  
  [dependencies.fancy-regex]
--version = "0.14"
-+version = ">=0.13, <0.18"
+-version = "0.17"
++version = ">=0.16, <0.19"
  optional = true
  
  [dependencies.getrandom]
-@@ -181,7 +181,7 @@
- optional = true
- 
- [dependencies.itertools]
--version = "0.14"
-+version = ">=0.13,<0.15"
- 
- [dependencies.log]
- version = "0.4"
-@@ -190,10 +190,10 @@
+@@ -203,7 +203,7 @@
  version = "0.2.0"
  
  [dependencies.monostate]
 -version = "0.1.12"
-+version = ">=0.1.12,<2"
++version = "1.0.0"
  
  [dependencies.onig]
--version = "6.5.1"
-+version = "6.4.0"
- optional = true
- default-features = false
- 
-@@ -240,9 +240,6 @@
+ version = "6.5.1"
+@@ -253,9 +253,6 @@
  [dev-dependencies.assert_approx_eq]
  version = "1.1"
  
